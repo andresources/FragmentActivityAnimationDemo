@@ -6,62 +6,44 @@
     android:layout_height="match_parent"
     >
 
-    <TextView
-        android:id="@+id/title_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:text="Hello World!"
-        />
-
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/btnOverridePendingTransition"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/title_text"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:text="使用overridePendingTransition方法实现activity切换动画"
+        android:onClick="overridePendingTransition"
+        android:layout_margin="5dp"
+        android:text="overridePendingTransition"
         />
 
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnExplode"
+        android:onClick="explodeAnimation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button1"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:text="使用ActivityOptions代码方式实现Activity动画切换"
+        android:layout_below="@+id/btnOverridePendingTransition"
+        android:layout_margin="5dp"
+        android:text="ActivityOptions Activity with Explode"
         />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btnStyle"
+        android:onClick="styleActivity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button3"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:text="使用ActivityOptions通过style的方式实现activity动画切换"
+        android:layout_below="@+id/btnExplode"
+        android:layout_margin="5dp"
+        android:text="ActivityOptions style activity"
+        />
+    <ImageView
+        android:id="@+id/ivUser"
+        android:onClick="scaleImage"
+        android:layout_below="@+id/btnStyle"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:background="@drawable/user"
         />
 
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button4"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:text="ActivityOptions"
-        android:background="@color/colorPrimary"
-        android:transitionName="shareNames"
-        />
     <TextView
         android:id="@+id/tv"
         android:transitionName="shareNames1"
@@ -70,8 +52,7 @@
         android:layout_alignParentBottom="true"
         android:text="Hari"
         android:background="@color/colorAccent"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_margin="5dp"
         />
 <ImageView
     android:id="@+id/iv"

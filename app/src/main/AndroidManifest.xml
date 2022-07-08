@@ -10,9 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FragmentAnimationDemo">
         <activity
-            android:name=".activity.MakeSceneAnimActivity"
+            android:name=".activity.ImageScaleActivity"
             android:exported="false" />
-        <!-- android:name=".fragments.MainActivity" -->
+        <activity
+            android:name=".activity.MakeSceneAnimActivity"
+            android:exported="false" /> <!-- android:name=".fragments.MainActivity" -->
         <activity
             android:name=".activity.MainActivity"
             android:exported="true">
@@ -22,9 +24,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.ThreeActivity" />
-        <activity android:name=".activity.FourActivity" />
-        <activity android:name=".activity.FiveActivity" />
+        <activity android:name=".activity.ExplodeActivity" />
+        <activity android:name=".activity.StyleAnimActivity" />
     </application>
 
 </manifest>

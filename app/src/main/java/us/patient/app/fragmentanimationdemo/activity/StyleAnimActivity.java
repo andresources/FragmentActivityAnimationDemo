@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import us.patient.app.fragmentanimationdemo.R;
 
-public class FourActivity extends AppCompatActivity {
+public class StyleAnimActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
