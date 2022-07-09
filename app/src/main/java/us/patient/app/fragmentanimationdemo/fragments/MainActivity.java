@@ -16,7 +16,8 @@ public class MainActivity extends AppCompatActivity {
         showFragmentOne();
     }
     private void showFragmentOne() {
-        Fragment fragmentOne = new FirstFragment();
+        //Fragment fragmentOne = new FirstFragment();
+        Fragment fragmentOne = new Image1Fragment();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, fragmentOne)
                 .commit();

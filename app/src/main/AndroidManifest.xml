@@ -10,11 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FragmentAnimationDemo">
         <activity
+            android:name=".activity.OverridePendingTransitionActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.ImageScaleActivity"
             android:exported="false" />
         <activity
             android:name=".activity.MakeSceneAnimActivity"
             android:exported="false" /> <!-- android:name=".fragments.MainActivity" -->
+        <!-- android:name=".activity.MainActivity" -->
         <activity
             android:name=".activity.MainActivity"
             android:exported="true">

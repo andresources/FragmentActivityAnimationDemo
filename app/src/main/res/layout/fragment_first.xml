@@ -13,6 +13,7 @@
         android:gravity="center"
         android:id="@+id/tv"
         android:padding="8dp"
+        android:transitionName="My_ANIM"
         android:layout_height="wrap_content"
         android:text="Second" />
     <TextView

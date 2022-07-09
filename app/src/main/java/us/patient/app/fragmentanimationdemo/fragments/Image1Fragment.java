@@ -3,20 +3,22 @@ package us.patient.app.fragmentanimationdemo.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.transition.TransitionInflater;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.ImageView;
 
 import us.patient.app.fragmentanimationdemo.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link FirstFragment#newInstance} factory method to
+ * Use the {@link Image1Fragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FirstFragment extends Fragment {
+public class Image1Fragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,7 +29,7 @@ public class FirstFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public FirstFragment() {
+    public Image1Fragment() {
         // Required empty public constructor
     }
 
@@ -37,11 +39,11 @@ public class FirstFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment FirstFragment.
+     * @return A new instance of fragment Image1Fragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static FirstFragment newInstance(String param1, String param2) {
-        FirstFragment fragment = new FirstFragment();
+    public static Image1Fragment newInstance(String param1, String param2) {
+        Image1Fragment fragment = new Image1Fragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -57,34 +59,31 @@ public class FirstFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-    TextView tv;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.fragment_first, container, false);
-         tv=view.findViewById(R.id.tv);
-        tv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showFragmentTwo(new SecondFragment());
-            }
-        });
-        TextView tv1=view.findViewById(R.id.tv1);
-        tv1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showFragmentTwo(new ThirdFragment());
-            }
-        });
         // Inflate the layout for this fragment
-        return view;
-    }
-    private void showFragmentTwo(Fragment fragmentTwo) {
-        getActivity().getSupportFragmentManager().beginTransaction()
-                .setCustomAnimations(R.anim.f_enter, R.anim.f_exit, R.anim.f_pop_enter, R.anim.f_pop_exit)
-                .replace(R.id.container, fragmentTwo)
-                .addToBackStack(null)
-                .commit();
+        View view=inflater.inflate(R.layout.fragment_image1, container, false);
+        Fragment fragment = new Image2Fragment();
 
+        //fragment.setSharedElementEnterTransition(TransitionInflater.from(getActivity()).inflateTransition(R.transition.change_image_transform));
+        //fragment.setEnterTransition(TransitionInflater.from(getActivity()).inflateTransition(android.R.transition.fade));
+
+        // Our shared element (in Fragment A)
+        ImageView mProductImage   = (ImageView) view.findViewById(R.id.imageView2);
+        mProductImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction ft = getFragmentManager().beginTransaction()
+                        .replace(R.id.container, fragment)
+                        .addToBackStack("transaction")
+                        .addSharedElement(mProductImage, "MyTransition");
+                ft.commit();
+            }
+        });
+        // Add Fragment B
+
+        return view;
     }
 }

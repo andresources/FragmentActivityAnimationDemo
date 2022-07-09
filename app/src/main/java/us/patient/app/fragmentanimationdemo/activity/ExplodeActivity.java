@@ -35,4 +35,10 @@ public class ExplodeActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_three);
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finishAfterTransition();
+    }
 }

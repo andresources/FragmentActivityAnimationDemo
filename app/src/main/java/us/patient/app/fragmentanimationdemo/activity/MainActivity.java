@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.ActivityOptionsCompat;
 
+import spencerstudios.com.bungeelib.Bungee;
 import us.patient.app.fragmentanimationdemo.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -69,9 +70,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void overridePendingTransition(View view) {
-        Intent intent = new Intent(MainActivity.this, ExplodeActivity.class);
+        Intent intent = new Intent(MainActivity.this, OverridePendingTransitionActivity.class);
         startActivity(intent);
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_in_right);
+        Bungee.swipeLeft(MainActivity.this);
+
     }
 
     public void styleActivity(View view) {
